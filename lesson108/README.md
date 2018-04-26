@@ -644,8 +644,7 @@ class Store {
   @observable count = 0;
 
   // 不使用 action 注解的修改 observable 对象的方法
-  withoutTransaction() {
-    this.count++;
+  withoutTransaction() {    this.count++;
     this.count++;
     this.count++;
   }
@@ -685,13 +684,13 @@ render() {
 
 使用 `npm run adv04` 启动 demo ，打开浏览器 Console ，当点击 withoutTransaction 按钮时，我们可以看到每次修改 `observable` 对象 
 MobX 都会去通知组件进行渲染，因此组件将 `render` 三次。而点击 withTransaction 按钮时，我们可以看到 MobX 会等三次修改都完成后才去通知
-组件进行渲染，因此组件只 `rendre` 了一次。
+组件进行渲染，因此组件只 `render` 了一次。
 
 ## 小结
 
 到此 MobX 的内容就算简单介绍完了。对比于 Redux ，个人感觉 MobX 更偏重面向对象的思想，其 store 就是既包含数据模型，也包含业务功能的领域模型。
 而 Redux 则更偏重于函数式编程，通过纯函数去修改 state 。当面对一个不太复杂的项目时， MobX 的引入成本不大，核心 API 也较少，也没有过于复杂的
-抽象概念。在引入后基本上无须额外维护 state ，也可以很容易的将业务逻辑抽离到 store 内部，让组件只需关心 view 层的展示，最大程度的发货 React 
+抽象概念。在引入后基本上无须额外维护 state ，也可以很容易的将业务逻辑抽离到 store 内部，让组件只需关心 view 层的展示，最大程度的发挥 React 
 的优势。
 
 ## 扩展阅读
